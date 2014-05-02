@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta charset="UTF-8">
+<title>LOBO</title>
+<link href="css/datatable/demo_table.css" rel="stylesheet" type="text/css" />
+<link href="css/fuentes.css" rel="stylesheet" type="text/css" />
+<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" language="javascript" src="js/datatable/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="js/datatable/jquery.dataTables.js"></script>
+       
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+               
+				   $('#example tbody td').click( function () {
+					// Get the position of the current data from the node
+					var aPos = oTable.fnGetPosition( this );
+					 
+					// Get the data array for this row
+					var aData = oTable.fnGetData( aPos[0] );
+					 
+					// Update the data array and return the value
+					aData[ aPos[1] ] = 'clicked';
+					this.innerHTML = 'clicked';
+				  } );
+			   
+			   
+			     var oTable =  $('#example').dataTable({
+                    "oLanguage": {
+                        "sUrl": "js/datatable/datatable.spanish.txt"
+                    },
+					"bSort": false,
+					"bProcessing": true,
+        			"sAjaxSource": 'data/ordenes.txt',
+					"bFilter": false
+                });
+				
+							
+			
+            });
+
+
+        </script>
+
+
+</head>
+<body>
+<main role="main">
+    <header> 
+        <div class="loboHome"> 
+            <div>
+                <span class="tituloMedium tituloLobo">LOBO <span class="titulosRegular tituloBuid"> build 1.0</span> </span>
+                <span class="titulosRegular">Hola Ivan, <a href="#">Log off?</a></span>
+            </div>
+        </div>
+        <nav>
+        	<ul>
+                <li class="titulosHeavy menuActivo"><a href="#">Dashboard</a></li>        
+                <li><a href="#">Clientes vs Equipos</a></li>        
+                <li><a href="#">Agentes</a></li>        
+           		<li><a href="#">Administrar</a></li>
+            </ul>        
+        </nav>
+    </header>
+    
+    <section> 
+    	<h1> Ordenes vs Eventos </h1> 
+         <div class="opcion_group_derecha"> 
+                <div class="boton_opcion"> 
+                    <span> Agregar un<br/>Nuevo Evento</span>
+                    <img src="img/ico-evento-nuevo.png" alt="aceptar" />
+                </div>
+      </div> 
+          
+          <div class="tabla_ordenes">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+                    <thead>
+                         <tr>
+                           <th>Fecha</th>
+                           <th>Nombre Cliente</th>
+                           <th>Factura</th>
+                           <th>Tipo</th>
+                           <th class="sin_borde"></th>                       
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+            </table>
+          </div>
+          
+          <div class="tabla_eventos">
+           <table cellpadding="0" cellspacing="0" border="0" class="eventos" width="475px" id="tblEnventos">
+                <thead>
+                    <tr >
+                      <th rowspan="2" class="sin_borde">&lt; Marzo 21 &gt;</th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom titulo_ampm">am</th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom titulo_ampm">pm</th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde_bottom"></th>
+                        <th class="sin_borde"></th>   
+                    </tr>
+                    <tr>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th class="sin_borde_derecho">7</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="center columna_mes">E01</td>
+                        <td class="center datable_borde grupo_rojo_left"><a href="#" class="enlace_icono"></a></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio">	</td>
+                        <td class="center datable_borde grupo_azul_left" ></td>
+                        <td class="center datable_borde grupo_azul_medio"></td>
+                        <td class="center datable_borde grupo_azul_medio"></td>
+                        <td class="center datable_borde grupo_azul_medio"></td>
+                        <td class="center datable_borde grupo_azul_right"></td>
+                        <td class="center datable_borde grupo_vacio_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right"></td>
+                    </tr>
+                    <tr >
+                        <td class="center columna_mes">E02</td>
+                        <td class="center datable_borde grupo_rojo_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right"></td>
+                    </tr>
+                    <tr >
+                        <td class="center columna_mes">E03</td>
+                        <td class="center datable_borde grupo_vacio_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right "></td>
+                    </tr>
+                    <tr >
+                        <td class="center columna_mes">E04</td>
+                        <td class="center datable_borde grupo_rojo_left"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_rojo_medio"></td>
+                        <td class="center datable_borde grupo_vacio_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right"></td>
+                    </tr>
+                    <tr >
+                        <td class="center columna_mes">E05</td>
+                        <td class="center datable_borde grupo_vacio_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right"></td>
+                    </tr>
+                    <tr >
+                        <td class="center columna_mes">E06</td>
+                        <td class="center datable_borde grupo_vacio_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right"></td>
+                    </tr>
+                    <tr >
+                        <td class="center columna_mes redondear_inferior_izq">E07</td>
+                        <td class="center datable_borde grupo_vacio_left"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center datable_borde grupo_vacio_medio"></td>
+                        <td class="center grupo_vacio_right"></td>
+                    </tr>                    
+                </tbody>
+               
+            </table>
+          
+          </div>
+    </section>
+    
+    <section class = "section_gris"> 
+    	<h1> Indicadores </h1> 
+        <div class="opcion_group_derecha"> <input type="text" value="01/2014"/></div>  
+    </section>
+    
+    <section id="div_mapa"></section>
+    
+    <section id="div_evento">
+    	<h1> Evento Nuevo </h1> 
+    </section>
+    
+ </main>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+  font-family: "Raleway-Heavy";  
+  src: url(fonts/Raleway/Raleway-Heavy.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Light";  
+  src: url(fonts/Raleway/Raleway-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Regular";  
+  src: url(fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Medium";  
+  src: url(fonts/Raleway/Raleway-Medium.ttf) format("truetype");
+}
+
+
+@font-face {
+  font-family: "Raleway-Bold";  
+  src: url(fonts/Raleway/Raleway-Bold.ttf) format("truetype");
+}
+
+.titulosHeavy {
+	font-family: "Raleway-Heavy";	
+}
+
+.titulosRegular {
+	font-family: "Raleway-Regular";	
+}
+
+.tituloMedium {
+	font-family: "Raleway-Medium";	
+}

@@ -57,7 +57,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=lobo',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'dorado',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		

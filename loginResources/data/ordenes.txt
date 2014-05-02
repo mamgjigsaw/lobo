@@ -1,0 +1,17 @@
+{ "aaData": [
+	["14/01/2014","Lumicentro S.A.","60636","Instalacion",">"],
+	["14/01/2014","Sinsa S.A.","60635","Mantenimiento",">"],
+	["14/01/2014","Alberto Medal","60634","Reparacion",">"],
+	["14/01/2014","Caros Lopez","60633","Instalacion",">"],
+	["14/01/2014","Osiris Guerrero","60632","Mantenimiento",">"],
+	["13/01/2014","Condominio Villa Asturias","60631","Reparacion",">"],
+	["13/01/2014","Industria Metalurgica El Pulpito","60630","Instalacion",">"],
+	["13/01/2014","Maria Jose Arana","60629","Mantenimiento",">"],
+	["13/01/2014","Humberto Cajina","60628","Reparacion",">"],
+	["13/01/2014","Rafael Nadal","60627","Instalacion",">"],
+	["12/01/2014","Lumicentro S.A.","60626","Mantenimiento",">"],
+	["12/01/2014","Sinsa S.A.","60625","Reparacion",">"],
+	["12/01/2014","Alberto Medal","60624","Instalacion",">"],
+	["12/01/2014","Carlos Sequeira","60623","Mantenimiento",">"],
+	["12/01/2014","Instituto Pedagogico La Salle","60622","Reparacion",">"]
+] }
