@@ -10,8 +10,6 @@
 	.mostrar{
 		display: inline;
 	}
-
-
 </style>
 
 <script type="text/javascript">
@@ -29,7 +27,7 @@
 	   	if(valorCodigo != ""){
 	   		$.ajax({
 			    type: 'POST',
-			    url: 'http://localhost/lobo/evento/getNameProductByCodigo?params='+ valorCodigo,
+			    url: '<?php echo Yii::app()->request->baseUrl;?>/evento/getNameProductByCodigo?params='+ valorCodigo,
 			    //data: $(),//{ 'searchPhrase' => searchBox.value },
 			    success: function(data, textStatus, jqXHR) {
 			    	if(data == ""){
@@ -63,14 +61,15 @@
    });
 
    function gotoSiguiente(){
-   	  if(step == 1){
+   	   save();
+   	  /*if(step == 1){
    	  	if($("#txtName").val() == ""){
    	  		alert("Llene el nombre, por favor");
    	  	}else{   	  		
    	  		$("#btnAtras").removeClass("esconder").addClass("mostrar");
    	  		$("#linkfecha").click();
    	  	}
-   	  }
+   	  }*/
 
    }
 
@@ -125,9 +124,21 @@
 
    function save(){
 
+   	$.ajax({
+        type: 'POST',
+        url: '<?php echo Yii::app()->request->baseUrl;?>/evento/save',
+        data: { 'nombre': $("#txtName").val(),'nombre_cliente': $("#txtCliente").val(),'numero_telefono': $("#txtTelefono").val(),'direccion': $("#txtDireccion").val(),'fecha_facturacion': $("#txtFechaFacturacion").val(),'numero_factura': '2563','nombre_vendedor': $("#txtNombreVendedor").val(),'tipo_evento': $("#txtTipoEvento").val(),'observacion': 'ja ja','materiales': arregloMateriales},
+        success: function(data, textStatus, jqXHR) {
+
+           alert(data);
+
+        },
+        //ASOCIACION DE MUNICIPIOS DE
+        dataType: 'json'
+    });
+
+
    }
-
-
 </script>
 
 <div class="row">
@@ -166,14 +177,14 @@
 	  	<div class="row">
 		  <div class="col-md-4">
 		  	Ref: # FA 000123
-		  	<form role="form">
+		  	
 		  		<div class="form-group">
 		  			<label for="txtCategoria" >Categoria</label>
 		  			
-		  			<select class="form-control">
-					  <option>instalacion</option>
-					  <option>mantenimiento</option>
-					  <option>reparacion</option>					  
+		  			<select id="txtTipoEvento" class="form-control">
+					  <option value="1">instalacion</option>
+					  <option value="2">mantenimiento</option>
+					  <option value="3">reparacion</option>					  
 					</select>
 
 		  		</div>
@@ -197,13 +208,12 @@
 		  			<label for="txtNombreVendedor" >Nombre del vendedor</label>
 		  			<input id="txtNombreVendedor" type="text" class="form-control" />
 		  		</div>
-		  	</form>
+		  	
 
 		  </div>
 		  <div class="col-md-4">fecha</div>
 		  <div class="col-md-4">agenda</div>
 		</div>
-
 	  </div><!--Terminar el tab de fechaEquipo-->
 	  <div class="tab-pane" id="materiales">
 	  </br>

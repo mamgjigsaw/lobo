@@ -39,7 +39,7 @@ class Evento extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idevento', 'required'),
+			//array('idevento', 'required'),
 			array('idevento, tipo_evento', 'numerical', 'integerOnly'=>true),
 			array('nombre', 'length', 'max'=>150),
 			array('nombre_cliente, nombre_vendedor', 'length', 'max'=>100),

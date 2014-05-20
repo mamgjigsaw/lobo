@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 <![endif]-->
 
-
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
@@ -42,7 +41,7 @@
 			'items'=>array(
 				array('label'=>'Dashboard', 'url'=>array('/site/index')),
 				array('label'=>'Clientes vs Esquipos', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Agentes', 'url'=>array('/site/contact')),
+				array('label'=>'Agentes', 'url'=>array('/agentes/index')),
 				array('label'=>'Crear Evento', 'url'=>array('/evento/nuevo')),
 				array('label'=>'Administrar', 'url'=>array('/evento/nuevo')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
@@ -61,9 +60,8 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		La marca "Lobo Workforce Management"® y el logotipo del lobo son marcas registradas de Creativo Corp S.A..</br>
+Todos los derechos reservados © 2014 | Diseño y Desarrollo creativocorp.com
 	</div><!-- footer -->
 
 </div><!-- page -->

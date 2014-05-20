@@ -52,7 +52,10 @@ class SiteController extends Controller
 			$this->render('login',array('model'=>$model));
 
 		}else{
-			$this->render('index');
+			$event = new Evento;
+			$event = $event->findAll();	
+
+			$this->render('index', array('model'=>$event));
 
 		}
 

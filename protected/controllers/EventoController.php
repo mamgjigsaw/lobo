@@ -128,4 +128,56 @@ class EventoController extends Controller
 
 		echo json_encode($c);
 	}
+
+	public function actionSave(){
+
+        $respuesta;
+
+        //save evento
+		$event = new Evento;
+
+		$event->nombre = $_POST["nombre"];
+		$event->nombre_cliente = $_POST["nombre_cliente"];
+		$event->numero_telefono = $_POST["numero_telefono"];
+	    $event->direccion = $_POST["direccion"];
+	    $event->fecha_facturacion = $_POST["fecha_facturacion"];
+	    $event->numero_factura = $_POST["numero_factura"];
+	    $event->nombre_vendedor = $_POST["nombre_vendedor"];
+	    $event->tipo_evento = $_POST["tipo_evento"];
+	    $event->observacion = $_POST["observacion"];
+	    $event->imagen_firma = "";
+
+	    if($event->save()){
+	    	$respuesta = "ok";
+
+	    	//save detalle_producto
+
+		    $rows = count($_POST["materiales"]);
+
+		    for ($i = 0; $i < $rows; $i++) {
+			    $codigo = $_POST["materiales"][$i][0];
+
+			    $producto = new Producto;
+			    $producto = $producto->find("codigo_detalle_producto =:valor",array(":valor"=>$codigo));
+
+	    	    $detalle_producto = new DetalleProducto;
+
+			    $detalle_producto->idevento = $event->idevento;			    
+			    $detalle_producto->idproducto = $producto->idproducto;
+			    $detalle_producto->unidades_recibidas = $_POST["materiales"][$i][2];
+			    $detalle_producto->unidades_utilizadas = $_POST["materiales"][$i][2];
+			    $detalle_producto->bodega = $_POST["materiales"][$i][3];
+
+			    if($detalle_producto->save())
+			    	continue;
+			}
+	    }
+
+		//$arraTotal = array();
+		//array_push($arraTotal, $event->direccion);
+
+		//echo json_encode($_POST["materiales"][0][0]);
+		echo json_encode($respuesta);
+	}
 }
+

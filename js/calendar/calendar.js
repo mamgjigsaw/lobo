@@ -40,7 +40,7 @@ if(!String.prototype.formatNum) {
 
 	var defaults = {
 		// Width of the calendar
-		width:              '100%',
+		width:              '60%',
 		// Initial view (can be 'month', 'week', 'day')
 		view:               'month',
 		// Initial date. No matter month, week or day this will be a starting point. Can be 'now' or a date in format 'yyyy-mm-dd'

@@ -28,7 +28,7 @@ class AgentesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','saveAgente','getSupervisores','getDireccionImagen'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -122,8 +122,7 @@ class AgentesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$this->render('index',array()
-		));
+		$this->render('index');
 	}
 
 	/**
@@ -168,4 +167,81 @@ class AgentesController extends Controller
 			Yii::app()->end();
 		}
 	}
+
+   public function actionSaveAgente(){
+   	    $respuesta = "";
+   		$nombre = $_POST["nombre"];
+   		$codigo = $_POST["codigo"];
+   		$option = $_POST["option"];
+   		$tipo = $_POST["tipo"];
+
+   		if($tipo == 2){
+   			if($option == 1){
+   				//save
+   				$agentes = new Agente;
+		   		$agentes->nombre = $nombre;
+		   		$agentes->codigo_qr = $codigo;
+		   		$agentes->fecha_ingreo = date('Y-m-d H:i:s');
+		   		$agentes->tipo = 2;
+		   		$agentes->estado = 1;
+
+		   		$agentes->save();
+
+	   			Yii::import('ext.qrcode.QRCode');
+				$code=new QRCode($codigo);					 
+				$code->create('/Applications/MAMP/htdocs/lobo/protected/img/'.$agentes->idagente.'.png');
+
+		   		$respuesta = $agentes->idagente;
+		   		echo json_encode($respuesta);
+   			}else{
+   				//update
+   				$id = $_POST["id"];
+   				$agentes = new Agente;
+   				$agentes = $agentes->find("idagente =:valor", array(":valor"=>$id));
+
+   				$agentes->nombre = $nombre;
+   				$agentes->codigo_qr = $codigo;
+		        $agentes->update(array('nombre','codigo_qr'));
+
+		        Yii::import('ext.qrcode.QRCode');
+				$code=new QRCode($codigo);					 
+				$code->create('/Applications/MAMP/htdocs/lobo/protected/img/'.$agentes->idagente.'.png');
+
+		   		//$respuesta = $agentes->idagente;
+   				
+   			}
+   			
+   		}
+   }
+
+   public function actionGetSupervisores(){
+   		$agentes = new Agente;
+   		$criteria = new CDbCriteria();
+   		$criteria->addCondition('estado = 1');
+		$agentes = $agentes->findAll($criteria);   		
+
+		$table = array();
+		
+		foreach ($agentes as $value) {
+			$row = array();
+
+			array_push($row, $value->idagente);
+			array_push($row, $value->nombre);
+			array_push($row, $value->codigo_qr);
+
+			array_push($table, $row);
+		}
+
+		echo json_encode($table);
+   }
+
+   public function actionGetDireccionImagen(){
+
+   	$path = Yii::app()->basePath.'/img/'. $_POST['id'] .'.png';
+	$imgurl= Yii::app()->assetManager->publish($path);
+
+	echo json_encode($imgurl);
+
+   }
+
 }
